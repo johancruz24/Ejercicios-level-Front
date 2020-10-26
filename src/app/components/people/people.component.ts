@@ -11,12 +11,20 @@ export class PeopleComponent implements OnInit {
   constructor(public peopleService: PeopleService) { }
 
   ngOnInit(): void {
+    this.getPeoples();
+  } 
+
+  getPeoples(){
     this.peopleService.getPeople().subscribe(
-      res => console.log(res),
-      err => console.log(err)     
-      
-    )   
-    
+      res => {
+        this.peopleService.peoples = res;
+      },  
+      err => console.log(err) 
+    )
+  }
+
+  addPeople(form){
+
   }
 
 }
