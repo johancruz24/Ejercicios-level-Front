@@ -2,7 +2,38 @@
   <div class="col-md-4">
     <div class="card">
       <div class="card-body">
-        <h1>Formulario</h1>
+        <form #peopleForm="ngForm" (ngSubmit)="addPeople(peopleForm)")>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              placeholder="Please, Enter FullName"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="mail"
+              placeholder="Please, Enter Email"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="number"
+              class="form-control"
+              name="km"
+              placeholder="Please, Enter distance traveled"
+            />
+          </div>
+          <button class="btn btn-primary mr-2">
+            Clean
+          </button>
+          <button class="btn btn-secondary">
+            Save
+          </button>
+        </form>
       </div>
     </div>
   </div>
@@ -13,10 +44,23 @@
           <th>Name</th>
           <th>Email</th>
           <th>Distance traveled</th>
+          <th>Options</th>
         </tr>
       </thead>
       <tbody>
-
+        <tr *ngFor="let people of peopleService.peoples">
+          <td>{{ people.name }}</td>
+          <td>{{ people.mail }}</td>
+          <td>{{ people.km }}</td>
+          <td>
+            <button class="btn btn-secondary btn-sm">
+              <i class="material-icons">edit</i>
+            </button>
+            <button class="btn btn-danger btn-sm">
+              <i class="material-icons">delete</i>
+            </button>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
