@@ -1,6 +1,7 @@
 # Fronted
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Clone the repo to Backend (https://github.com/johancruz24/Ejercicios-level-Backend.git), where you can run the database and Rest API. 
 
 ## Development server
 
