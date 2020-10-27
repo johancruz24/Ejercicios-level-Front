@@ -2,13 +2,14 @@
   <div class="col-md-4">
     <div class="card">
       <div class="card-body">
-        <form #peopleForm="ngForm" (ngSubmit)="addPeople(peopleForm)")>
+        <form #peopleForm="ngForm" (ngSubmit)="addPeople(peopleForm)">
           <div class="form-group">
             <input
               type="text"
               class="form-control"
               name="name"
               placeholder="Please, Enter FullName"
+              [(ngModel)]="peopleService.selectedPeople.name"
             />
           </div>
           <div class="form-group">
@@ -17,6 +18,7 @@
               class="form-control"
               name="mail"
               placeholder="Please, Enter Email"
+              [(ngModel)]="peopleService.selectedPeople.mail"
             />
           </div>
           <div class="form-group">
@@ -25,6 +27,7 @@
               class="form-control"
               name="km"
               placeholder="Please, Enter distance traveled"
+              [(ngModel)]="peopleService.selectedPeople.km"
             />
           </div>
           <button class="btn btn-primary mr-2">
@@ -56,7 +59,7 @@
             <button class="btn btn-secondary btn-sm">
               <i class="material-icons">edit</i>
             </button>
-            <button class="btn btn-danger btn-sm">
+            <button class="btn btn-danger btn-sm" (click)="deletePeople(people._id)">
               <i class="material-icons">delete</i>
             </button>
           </td>
